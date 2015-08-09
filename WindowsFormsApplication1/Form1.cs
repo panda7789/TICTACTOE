@@ -22,7 +22,7 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             client  =new Cli();
-
+            
 
             
 
@@ -31,59 +31,60 @@ namespace WindowsFormsApplication1
 
         private void button7_Click(object sender, EventArgs e)
         {
-            
-            Button btn = (Button)sender;
-            if (pocet <100)
+            if (client.muzes == true || serv.muzes == true)
             {
-                
-                btn.BackColor = Color.Green;
-
-                if (pocet % 2 == 1)
+                Button btn = (Button)sender;
+                if (pocet < 100)
                 {
-                    label2.Text = "";
-                    label1.Text = "HRAJEŠ";
+
+                    btn.BackColor = Color.Green;
+
+                    if (pocet % 2 == 1)
+                    {
+                        label2.Text = "";
+                        label1.Text = "HRAJEŠ";
+                    }
+                    else { label2.Text = "HRAJEŠ"; label1.Text = ""; }
+                    serv.Send(btn.Name);
+                    btn.Enabled = false;
+                    Thread main = Thread.CurrentThread;
+                    Thread t1 = new Thread(serv.Listen);
+
+                    t1.Start();
+                    Debug.Write(Thread.CurrentThread.ThreadState);
+                    t1.Join();
+                    Debug.Write(Thread.CurrentThread.ThreadState);
+
+
+
+
+
+
+
                 }
-                else { label2.Text = "HRAJEŠ"; label1.Text = ""; }
-                serv.Send(btn.Name);
-                btn.Enabled = false;
-                Thread main = Thread.CurrentThread;
-                Thread t1 = new Thread(serv.Listen);
-                
-                t1.Start();
-                Debug.Write(Thread.CurrentThread.ThreadState);
-                t1.Join();
-                Debug.Write(Thread.CurrentThread.ThreadState);
+                else if (pocet > 100)
+                {
+
+                    btn.BackColor = Color.Red;
+
+                    client.Write(btn.Name);
+                    btn.Enabled = false;
+
+                    Thread main = Thread.CurrentThread;
+                    Thread t1 = new Thread(client.Get);
+                    t1.Start();
+
+                    t1.Join();
 
 
+                }
 
-                
+                pocet++;
+                cekni();
 
-                
-                
+
             }
-            else if (pocet > 100)
-            {
-                
-                btn.BackColor = Color.Red;
-
-                client.Write(btn.Name);
-                btn.Enabled = false;
-                
-                Thread main = Thread.CurrentThread;
-                Thread t1 = new Thread(client.Get);
-                t1.Start();
-                
-                t1.Join();
-                
-                
-            }
-            
-            pocet++;
-            cekni();
-            
-
         }
-
         public void cekni()
         {
             AboutBox1 usr = new AboutBox1();
