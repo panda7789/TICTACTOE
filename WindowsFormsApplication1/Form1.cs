@@ -101,13 +101,14 @@ namespace WindowsFormsApplication1
                     
                     usr.label1.Text = "Vyhrál H2";
                     usr.label1.BackColor = Color.Red;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false;
+                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try { serv.Stop(); }
+                    catch { client.Disconnect(); }
                 }
                 else if (button1.BackColor == Color.Green)
                 {
                     usr.label1.Text = "Vyhrál H1";
                     usr.label1.BackColor = Color.Green;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; this.Enabled = false;
+                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();}
                     
                 }
             }
@@ -119,13 +120,13 @@ namespace WindowsFormsApplication1
                 {
                     usr.label1.Text = "Vyhrál H2";
                     usr.label1.BackColor = Color.Red;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false;
+                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
                 }
                 else if (button4.BackColor == Color.Green)
                 {
                     usr.label1.Text = "Vyhrál H1";
                     usr.label1.BackColor = Color.Green;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false;
+                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
                 }
                 else { usr.label1.Text = "FUCK"; }
                 
@@ -138,13 +139,13 @@ namespace WindowsFormsApplication1
                 {
                     usr.label1.Text = "Vyhrál H2";
                     usr.label1.BackColor = Color.Red;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false;
+                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
                 }
                 else if (button7.BackColor == Color.Green)
                 {
                     usr.label1.Text = "Vyhrál H1";
                     usr.label1.BackColor = Color.Green;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false;
+                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
                 }
             }
             #endregion
@@ -155,13 +156,13 @@ namespace WindowsFormsApplication1
                 {
                     usr.label1.Text = "Vyhrál H2";
                     usr.label1.BackColor = Color.Red;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false;
+                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
                 }
                 else if (button1.BackColor == Color.Green)
                 {
                     usr.label1.Text = "Vyhrál H1";
                     usr.label1.BackColor = Color.Green;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false;
+                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
                 }
             }
             #endregion
@@ -172,13 +173,13 @@ namespace WindowsFormsApplication1
                 {
                     usr.label1.Text = "Vyhrál H2";
                     usr.label1.BackColor = Color.Red;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false;
+                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
                 }
                 else if (button2.BackColor == Color.Green)
                 {
                     usr.label1.Text = "Vyhrál H1";
                     usr.label1.BackColor = Color.Green;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false;
+                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
                 }
             }
             #endregion
@@ -189,13 +190,13 @@ namespace WindowsFormsApplication1
                 {
                     usr.label1.Text = "Vyhrál H2";
                     usr.label1.BackColor = Color.Red;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false;
+                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
                 }
                 else if (button3.BackColor == Color.Green)
                 {
                     usr.label1.Text = "Vyhrál H1";
                     usr.label1.BackColor = Color.Green;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false;
+                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
                 }
             }
             #endregion
@@ -206,13 +207,13 @@ namespace WindowsFormsApplication1
                 {
                     usr.label1.Text = "Vyhrál H2";
                     usr.label1.BackColor = Color.Red;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false;
+                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
                 }
                 else if (button1.BackColor == Color.Green)
                 {
                     usr.label1.Text = "Vyhrál H1";
                     usr.label1.BackColor = Color.Green;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false;
+                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
                 }
             }
             #endregion
@@ -223,13 +224,13 @@ namespace WindowsFormsApplication1
                 {
                     usr.label1.Text = "Vyhrál H2";
                     usr.label1.BackColor = Color.Red;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false;
+                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
                 }
                 else if (button3.BackColor == Color.Green)
                 {
                     usr.label1.Text = "Vyhrál H1";
                     usr.label1.BackColor = Color.Green;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false;
+                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
                 }
             }
 #endregion
