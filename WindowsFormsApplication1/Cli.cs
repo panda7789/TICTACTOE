@@ -16,6 +16,7 @@ namespace WindowsFormsApplication1
     {
         Form1 frm;
         TcpClient tcpclnt = new TcpClient();
+        public bool muzes;
         public string a;
         public Cli()
         {
@@ -33,7 +34,7 @@ namespace WindowsFormsApplication1
                 tcpclnt.Connect(ip, 8001);
                 // use the ipaddress as in the server program
                 frm.settext("Connected");
-
+                muzes = true;
                     
                     
 
@@ -48,47 +49,52 @@ namespace WindowsFormsApplication1
         }
         public void Write(string st)
         {
-                
+            if (muzes == true)
+            {
 
                 String str = st;
                 Stream stm = tcpclnt.GetStream();
 
                 ASCIIEncoding asen = new ASCIIEncoding();
                 byte[] ba = asen.GetBytes(str);
-                
+
 
                 stm.Write(ba, 0, ba.Length);
+            }
         }
         public void Get()
         {
-            try
+            if (muzes == true)
             {
-                Stream stm = tcpclnt.GetStream();
-                byte[] bb = new byte[100];
-                int k = stm.Read(bb, 0, 100);
-                
-                a = null;
-                for (int i = 0; i < k; i++)
+                try
                 {
-                    Console.Write(Convert.ToChar(bb[i]));
-                    a += Convert.ToChar(bb[i]);
-                }
-                if (a != null)
-                {
-                    Button btn = (Button)frm.Controls.Find(a, true)[0];
-                    btn.BackColor = Color.Green;
-                    try
-                    {
-                        btn.Enabled = false;
-                    }
-                    catch { }
-                }
+                    Stream stm = tcpclnt.GetStream();
+                    byte[] bb = new byte[100];
+                    int k = stm.Read(bb, 0, 100);
 
-                
-            }
-            catch (IOException)
-            {
-                
+                    a = null;
+                    for (int i = 0; i < k; i++)
+                    {
+                        Console.Write(Convert.ToChar(bb[i]));
+                        a += Convert.ToChar(bb[i]);
+                    }
+                    if (a != null)
+                    {
+                        Button btn = (Button)frm.Controls.Find(a, true)[0];
+                        btn.BackColor = Color.Green;
+                        try
+                        {
+                            btn.Enabled = false;
+                        }
+                        catch { }
+                    }
+
+
+                }
+                catch (IOException)
+                {
+
+                }
             }
 
                 

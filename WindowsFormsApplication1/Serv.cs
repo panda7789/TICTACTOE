@@ -17,6 +17,7 @@ namespace WindowsFormsApplication1
         TcpListener myList;
         Socket s;
         Form1 frm;
+        public bool muzes;
         public void Start(Form1 form)
         {
             try
@@ -33,27 +34,35 @@ namespace WindowsFormsApplication1
                 /* Start Listeneting at the specified port */
                 myList.Start();
                 s = myList.AcceptSocket();
+                muzes = true;
             }
             catch { }
         }
         public void Listen()
         {
+            if (muzes == true)
+            {
+                string a = null;
+                byte[] b = new byte[100];
 
-            string a = null;
-            byte[] b = new byte[100]; 
-                
 
                 int k = s.Receive(b);
-                
+
                 for (int i = 0; i < k; i++)
-                    a += (Convert.ToChar(b[i])).ToString(); 
+                    a += (Convert.ToChar(b[i])).ToString();
                 //frm.debug.Text = a;
-                if (a != null) {
-                    Button btn = (Button)frm.Controls.Find(a,true)[0];
+                if (a != null)
+                {
+                    Button btn = (Button)frm.Controls.Find(a, true)[0];
                     btn.BackColor = Color.Red;
-                    btn.Enabled = false;
-                    
+                    try
+                    {
+                        btn.Enabled = false;
+                    }
+                    catch { }
+
                 }
+            }
                 
         }
         public void Send(string papa){
