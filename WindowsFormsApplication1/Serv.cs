@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using System;
-using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.Drawing;
@@ -55,6 +53,7 @@ namespace WindowsFormsApplication1
                 {
                     Button btn = (Button)frm.Controls.Find(a, true)[0];
                     btn.BackColor = Color.Red;
+                    
                     try
                     {
                         btn.Enabled = false;

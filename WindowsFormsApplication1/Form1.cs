@@ -23,11 +23,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             client  =new Cli();
 
-            if (pocet % 2 == 1)
-            {
-                label1.Text = "HRAJEŠ";
-            }
-            else { label2.Text = "HRAJEŠ"; }
+
             
 
 
@@ -41,9 +37,13 @@ namespace WindowsFormsApplication1
             {
                 
                 btn.BackColor = Color.Green;
-                label1.Text = "HRAJEŠ";
-                label2.Text = "";
-                
+
+                if (pocet % 2 == 1)
+                {
+                    label2.Text = "";
+                    label1.Text = "HRAJEŠ";
+                }
+                else { label2.Text = "HRAJEŠ"; label1.Text = ""; }
                 serv.Send(btn.Name);
                 btn.Enabled = false;
                 Thread main = Thread.CurrentThread;
@@ -65,9 +65,7 @@ namespace WindowsFormsApplication1
             {
                 
                 btn.BackColor = Color.Red;
-                label1.Text = "";
-                label2.Text = "HRAJEŠ";
-                
+
                 client.Write(btn.Name);
                 btn.Enabled = false;
                 
@@ -76,9 +74,6 @@ namespace WindowsFormsApplication1
                 t1.Start();
                 
                 t1.Join();
-                Debug.Write("PRDEL#####################");
-                Debug.Write(Thread.CurrentThread.ThreadState);
-                Debug.Write(Thread.CurrentThread.Name);
                 
                 
             }
@@ -234,8 +229,8 @@ namespace WindowsFormsApplication1
                 }
             }
 #endregion
-            
 
+            
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -313,6 +308,50 @@ namespace WindowsFormsApplication1
         {
 
         }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "127.0.0.1";
+        }
+        public void hrajes()
+        {
+            if (pocet < 100)
+            {
+                if (pocet % 2 == 0)
+                {
+                    this.Invoke((MethodInvoker)(() => label2.Text = ""));
+                    this.Invoke((MethodInvoker)(() => label1.Text = "HRAJEŠ"));
+                }
+                else
+                {
+                    this.Invoke((MethodInvoker)(() => label2.Text = "HRAJEŠ"));
+                    this.Invoke((MethodInvoker)(() => label1.Text = ""));
+                }
+            }
+            else if (pocet > 101)
+            {
+                if (pocet % 2 == 1)
+                {
+                    this.Invoke((MethodInvoker)(() => label2.Text = ""));
+                    this.Invoke((MethodInvoker)(() => label1.Text = "HRAJEŠ"));
+                }
+                else
+                {
+                    this.Invoke((MethodInvoker)(() => label2.Text = "HRAJEŠ"));
+                    this.Invoke((MethodInvoker)(() => label1.Text = ""));
+                }
+            }
+        }
+
+        private void button7_BackColorChanged(object sender, EventArgs e)
+        {
+            
+
+        }
+
+
+
+
 
 
 
