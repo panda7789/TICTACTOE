@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
+using System.Net;
 
 namespace WindowsFormsApplication1
 {
@@ -312,7 +313,9 @@ namespace WindowsFormsApplication1
 
         private void button12_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "127.0.0.1";
+            string hostName = Dns.GetHostName(); // Retrive the Name of HOST
+            string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
+            textBox1.Text = myIP.ToString() ;
         }
         public void hrajes()
         {
