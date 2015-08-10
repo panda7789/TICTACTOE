@@ -19,12 +19,19 @@ namespace WindowsFormsApplication1
         Serv serv = new Serv();
         public int pocet = 0;
         public int[] pole = new int[9];
+        public Button[] tlacitka = new Button[9];
         public Form1()
         {
             InitializeComponent();
             client  =new Cli();
-            
 
+            
+            for (int i = 1; i < 10; i++)
+            {
+                Button btn = (Button)this.Controls.Find("button"+i, true)[0];
+                tlacitka[i-1] = btn;
+            }
+            barva_tl();
             
 
 
@@ -88,7 +95,7 @@ namespace WindowsFormsApplication1
         }
         public void cekni()
         {
-            AboutBox1 usr = new AboutBox1();
+            AboutBox1 usr = new AboutBox1(this);
 
             #region 123
             if (new[] { button1.BackColor.ToArgb(), button2.BackColor.ToArgb(), button3.BackColor.ToArgb() }.All(x => x == button1.BackColor.ToArgb()))
@@ -98,14 +105,13 @@ namespace WindowsFormsApplication1
                     
                     usr.label1.Text = "Vyhrál H2";
                     usr.label1.BackColor = Color.Red;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try { serv.Stop(); }
-                    catch { client.Disconnect(); }
+                    usr.label1.Visible = true; usr.Show();
                 }
                 else if (button1.BackColor == Color.Green)
                 {
                     usr.label1.Text = "Vyhrál H1";
                     usr.label1.BackColor = Color.Green;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();}
+                    usr.label1.Visible = true; usr.Show(); 
                     
                 }
             }
@@ -117,13 +123,13 @@ namespace WindowsFormsApplication1
                 {
                     usr.label1.Text = "Vyhrál H2";
                     usr.label1.BackColor = Color.Red;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
+                    usr.label1.Visible = true; usr.Show();  
                 }
                 else if (button4.BackColor == Color.Green)
                 {
                     usr.label1.Text = "Vyhrál H1";
                     usr.label1.BackColor = Color.Green;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
+                    usr.label1.Visible = true; usr.Show();  
                 }
                 else { usr.label1.Text = "FUCK"; }
                 
@@ -136,13 +142,13 @@ namespace WindowsFormsApplication1
                 {
                     usr.label1.Text = "Vyhrál H2";
                     usr.label1.BackColor = Color.Red;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
+                    usr.label1.Visible = true; usr.Show();  
                 }
                 else if (button7.BackColor == Color.Green)
                 {
                     usr.label1.Text = "Vyhrál H1";
                     usr.label1.BackColor = Color.Green;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
+                    usr.label1.Visible = true; usr.Show();  
                 }
             }
             #endregion
@@ -153,13 +159,13 @@ namespace WindowsFormsApplication1
                 {
                     usr.label1.Text = "Vyhrál H2";
                     usr.label1.BackColor = Color.Red;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
+                    usr.label1.Visible = true; usr.Show();  
                 }
                 else if (button1.BackColor == Color.Green)
                 {
                     usr.label1.Text = "Vyhrál H1";
                     usr.label1.BackColor = Color.Green;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
+                    usr.label1.Visible = true; usr.Show();  
                 }
             }
             #endregion
@@ -170,13 +176,13 @@ namespace WindowsFormsApplication1
                 {
                     usr.label1.Text = "Vyhrál H2";
                     usr.label1.BackColor = Color.Red;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
+                    usr.label1.Visible = true; usr.Show();  
                 }
                 else if (button2.BackColor == Color.Green)
                 {
                     usr.label1.Text = "Vyhrál H1";
                     usr.label1.BackColor = Color.Green;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
+                    usr.label1.Visible = true; usr.Show();  
                 }
             }
             #endregion
@@ -187,13 +193,13 @@ namespace WindowsFormsApplication1
                 {
                     usr.label1.Text = "Vyhrál H2";
                     usr.label1.BackColor = Color.Red;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
+                    usr.label1.Visible = true; usr.Show();  
                 }
                 else if (button3.BackColor == Color.Green)
                 {
                     usr.label1.Text = "Vyhrál H1";
                     usr.label1.BackColor = Color.Green;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
+                    usr.label1.Visible = true; usr.Show();  
                 }
             }
             #endregion
@@ -204,13 +210,13 @@ namespace WindowsFormsApplication1
                 {
                     usr.label1.Text = "Vyhrál H2";
                     usr.label1.BackColor = Color.Red;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
+                    usr.label1.Visible = true; usr.Show();  
                 }
                 else if (button1.BackColor == Color.Green)
                 {
                     usr.label1.Text = "Vyhrál H1";
                     usr.label1.BackColor = Color.Green;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
+                    usr.label1.Visible = true; usr.Show();  
                 }
             }
             #endregion
@@ -221,13 +227,13 @@ namespace WindowsFormsApplication1
                 {
                     usr.label1.Text = "Vyhrál H2";
                     usr.label1.BackColor = Color.Red;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
+                    usr.label1.Visible = true; usr.Show();  
                 }
                 else if (button3.BackColor == Color.Green)
                 {
                     usr.label1.Text = "Vyhrál H1";
                     usr.label1.BackColor = Color.Green;
-                    usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
+                    usr.label1.Visible = true; usr.Show();  
                 }
             }
             #endregion
@@ -380,6 +386,20 @@ namespace WindowsFormsApplication1
             
 
         }
+        public void barva_tl()
+        {
+            foreach(Button tlac in tlacitka){
+                tlac.BackColor = Color.FromArgb(224, 224, 224);
+                tlac.Enabled = true;
+            }
+            tlacitka[0].BackColor = Color.FromArgb(224, 224, 225);
+            tlacitka[1].BackColor = Color.FromArgb(224, 225, 224);
+            tlacitka[2].BackColor = Color.FromArgb(225, 224, 224);
+            tlacitka[3].BackColor = Color.FromArgb(224, 224, 223);
+            tlacitka[6].BackColor = Color.FromArgb(224, 223, 224);
+
+        }
+
 
 
 

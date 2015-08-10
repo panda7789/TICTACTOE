@@ -69,7 +69,6 @@ namespace WindowsFormsApplication1
 
                 ASCIIEncoding asen = new ASCIIEncoding();
                 s.Send(asen.GetBytes(papa));
-                Console.WriteLine("\nSent Acknowledgement");
         }
         public void Stop(){
                 /* clean up */
