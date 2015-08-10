@@ -230,9 +230,37 @@ namespace WindowsFormsApplication1
                     usr.label1.Visible = true; usr.Show(); this.Enabled = false; try{ serv.Stop();} catch{client.Disconnect();} 
                 }
             }
-#endregion
-
+            #endregion
+            #region tied
+            else if (button1.Enabled==false){
+                if(button2.Enabled==false){
+                    if(button3.Enabled==false){
+                        if(button4.Enabled==false){
+                            if(button5.Enabled==false){
+                                if(button6.Enabled==false){
+                                    if(button7.Enabled==false){
+                                        if(button8.Enabled==false){
+                                            if(button9.Enabled==false){
+                                                                    usr.label1.Text = "Remíza";
+                                                                    usr.label1.BackColor = Color.AliceBlue;
+                                                                    usr.label1.Visible = true; 
+                                                                    usr.Show(); 
+                                                                    this.Enabled = false; 
+                                                                    try{ serv.Stop();} catch{client.Disconnect();} 
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             
+
+            }
+            #endregion
+
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
