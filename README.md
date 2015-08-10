@@ -5,3 +5,4 @@ Hi guyz. So i try to do something new. I want to do something via TCP/IP connect
 
 # UPDATES
 ~version 0.1~ - I added ip textbox, so you can connect anywhere on LAN
+~version 0.1.1~ - Added tied option
